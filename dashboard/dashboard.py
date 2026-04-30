@@ -55,7 +55,7 @@ tab1, tab2, tab3 = st.tabs([
 # -- TAB 1: Tren Rata-rata Bulanan PM2.5 --
 with tab1:
     st.subheader(f"Tren Konsentrasi PM2.5 ({selected_year[0]} - {selected_year[1]})")
-    df_monthly = filtered_df.resample('M', on='datetime')['PM2.5'].mean().reset_index()
+    df_monthly = filtered_df.resample('ME', on='datetime')['PM2.5'].mean().reset_index()
 
     fig, ax = plt.subplots(figsize=(12, 5))
     sns.lineplot(data=df_monthly, x='datetime', y='PM2.5', marker='o', color='crimson', ax=ax)
