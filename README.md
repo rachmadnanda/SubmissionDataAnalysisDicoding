@@ -60,5 +60,5 @@ pip install -r requirements.txt
    Setelah semua library terinstal dengan sukses, jalankan perintah berikut untuk membuka dashboard di browser:
 
 ```bash
-streamlit run dashboard/app.py
+streamlit run dashboard/dashboard.py
 ```
