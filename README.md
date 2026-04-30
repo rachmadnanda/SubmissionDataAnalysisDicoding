@@ -26,8 +26,6 @@ pip install -r requirements.txt
 
 Jika Anda menggunakan Terminal atau Command Prompt standar dengan pipenv, jalankan urutan perintah berikut:
 
-Jika Anda menggunakan distribusi Anaconda, jalankan urutan perintah berikut di Anaconda Prompt:
-
 ```bash
 mkdir proyek_analisis_data
 cd proyek_analisis_data
