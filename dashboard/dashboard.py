@@ -6,11 +6,14 @@ import seaborn as sns
 # 1. Konfigurasi Halaman
 st.set_page_config(page_title="Air Quality Dashboard", page_icon="🌤️", layout="wide")
 
-# 2. Fungsi Load Data (Menggunakan Cache agar aplikasi lebih cepat)
+# 2. Fungsi Load Data 
 @st.cache_data
 def load_data():
-    # Membaca data yang sudah bersih hasil olahan notebook
-    df = pd.read_csv("main_data.csv")
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    file_path = os.path.join(current_dir, 'main_data.csv')
+    
+    df = pd.read_csv(file_path)
     df['datetime'] = pd.to_datetime(df['datetime'])
     return df
 
@@ -75,7 +78,7 @@ with tab2:
 with tab3:
     st.subheader("Distribusi Kategori Kualitas Udara (PM2.5 Index)")
     
-    # Melakukan Binning seperti di Notebook
+    # Binning
     bins = [0, 35, 75, 150, 500, 1000]
     labels = ['Good', 'Moderate', 'Unhealthy', 'Very Unhealthy', 'Hazardous']
     filtered_df['Air_Quality'] = pd.cut(filtered_df['PM2.5'], bins=bins, labels=labels)
